@@ -1,0 +1,35 @@
+{
+  "name": "@wxjs/h3",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windx-foobar/wxjs.git",
+    "directory": "packages/h3"
+  },
+  "scripts": {
+    "play": "nodemon --config playground/nodemon.json playground/app.ts",
+    "prepack": "unbuild"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@8.12.1",
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "dependencies": {
+    "@wxjs/sequelize": "workspace:*"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.1.6",
+    "h3": "^1.9.0",
+    "nodemon": "^3.0.2",
+    "jiti": "^1.21.0",
+    "unbuild": "^2.0.0",
+    "listhen": "^1.5.5",
+    "consola": "^3.2.3",
+    "get-port-please": "^3.1.1"
+  },
+  "peerDependencies": {
+    "h3": "^1.9.0"
+  }
+}
