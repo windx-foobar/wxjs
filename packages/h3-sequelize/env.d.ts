@@ -3,3 +3,5 @@ declare module 'h3' {
     sequelize: import('@wxjs/sequelize')['Sequelize']
   }
 }
+
+export {};

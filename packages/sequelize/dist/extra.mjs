@@ -1,0 +1,106 @@
+import jiti from "file:///home/windx/Projects/nuxt-modules/wxjs/node_modules/.pnpm/jiti@1.21.0/node_modules/jiti/lib/index.js";
+
+/** @type {import("/home/windx/Projects/nuxt-modules/wxjs/packages/sequelize/src/extra")} */
+const _module = jiti(null, {
+  "esmResolve": true,
+  "interopDefault": true,
+  "alias": {
+    "@wxjs/sequelize": "/home/windx/Projects/nuxt-modules/wxjs/packages/sequelize"
+  }
+})("/home/windx/Projects/nuxt-modules/wxjs/packages/sequelize/src/extra.ts");
+
+export default _module;
+export const Sequelize = _module.Sequelize;
+export const fn = _module.fn;
+export const col = _module.col;
+export const cast = _module.cast;
+export const literal = _module.literal;
+export const and = _module.and;
+export const or = _module.or;
+export const json = _module.json;
+export const where = _module.where;
+export const QueryInterface = _module.QueryInterface;
+export const ABSTRACT = _module.ABSTRACT;
+export const STRING = _module.STRING;
+export const CHAR = _module.CHAR;
+export const TEXT = _module.TEXT;
+export const NUMBER = _module.NUMBER;
+export const TINYINT = _module.TINYINT;
+export const SMALLINT = _module.SMALLINT;
+export const MEDIUMINT = _module.MEDIUMINT;
+export const INTEGER = _module.INTEGER;
+export const BIGINT = _module.BIGINT;
+export const FLOAT = _module.FLOAT;
+export const TIME = _module.TIME;
+export const DATE = _module.DATE;
+export const DATEONLY = _module.DATEONLY;
+export const BOOLEAN = _module.BOOLEAN;
+export const NOW = _module.NOW;
+export const BLOB = _module.BLOB;
+export const DECIMAL = _module.DECIMAL;
+export const NUMERIC = _module.NUMERIC;
+export const UUID = _module.UUID;
+export const UUIDV1 = _module.UUIDV1;
+export const UUIDV4 = _module.UUIDV4;
+export const HSTORE = _module.HSTORE;
+export const JSON = _module.JSON;
+export const JSONB = _module.JSONB;
+export const VIRTUAL = _module.VIRTUAL;
+export const ARRAY = _module.ARRAY;
+export const ENUM = _module.ENUM;
+export const RANGE = _module.RANGE;
+export const REAL = _module.REAL;
+export const DOUBLE = _module.DOUBLE;
+export const GEOMETRY = _module.GEOMETRY;
+export const GEOGRAPHY = _module.GEOGRAPHY;
+export const CIDR = _module.CIDR;
+export const INET = _module.INET;
+export const MACADDR = _module.MACADDR;
+export const CITEXT = _module.CITEXT;
+export const TSVECTOR = _module.TSVECTOR;
+export const Model = _module.Model;
+export const Transaction = _module.Transaction;
+export const Association = _module.Association;
+export const BelongsTo = _module.BelongsTo;
+export const HasOne = _module.HasOne;
+export const HasMany = _module.HasMany;
+export const BelongsToMany = _module.BelongsToMany;
+export const BaseError = _module.BaseError;
+export const AggregateError = _module.AggregateError;
+export const AsyncQueueError = _module.AsyncQueueError;
+export const AssociationError = _module.AssociationError;
+export const BulkRecordError = _module.BulkRecordError;
+export const ConnectionError = _module.ConnectionError;
+export const DatabaseError = _module.DatabaseError;
+export const EagerLoadingError = _module.EagerLoadingError;
+export const EmptyResultError = _module.EmptyResultError;
+export const InstanceError = _module.InstanceError;
+export const OptimisticLockError = _module.OptimisticLockError;
+export const QueryError = _module.QueryError;
+export const SequelizeScopeError = _module.SequelizeScopeError;
+export const ValidationError = _module.ValidationError;
+export const ValidationErrorItem = _module.ValidationErrorItem;
+export const AccessDeniedError = _module.AccessDeniedError;
+export const ConnectionAcquireTimeoutError = _module.ConnectionAcquireTimeoutError;
+export const ConnectionRefusedError = _module.ConnectionRefusedError;
+export const ConnectionTimedOutError = _module.ConnectionTimedOutError;
+export const HostNotFoundError = _module.HostNotFoundError;
+export const HostNotReachableError = _module.HostNotReachableError;
+export const InvalidConnectionError = _module.InvalidConnectionError;
+export const ExclusionConstraintError = _module.ExclusionConstraintError;
+export const ForeignKeyConstraintError = _module.ForeignKeyConstraintError;
+export const TimeoutError = _module.TimeoutError;
+export const UnknownConstraintError = _module.UnknownConstraintError;
+export const UniqueConstraintError = _module.UniqueConstraintError;
+export const Error = _module.Error;
+export const useInflection = _module.useInflection;
+export const Utils = _module.Utils;
+export const QueryTypes = _module.QueryTypes;
+export const Op = _module.Op;
+export const TableHints = _module.TableHints;
+export const IndexHints = _module.IndexHints;
+export const DataTypes = _module.DataTypes;
+export const Deferrable = _module.Deferrable;
+export const Validator = _module.Validator;
+export const ValidationErrorItemOrigin = _module.ValidationErrorItemOrigin;
+export const ValidationErrorItemType = _module.ValidationErrorItemType;

@@ -16,11 +16,11 @@ export const isNullOrUndefined = (maybeAny: unknown): maybeAny is undefined | nu
   return isNull(maybeAny) || isUndefined(maybeAny);
 };
 
-export function pick<O extends Record<string, any> = Record<string, any>, K extends (keyof O)[] = (keyof O)[]>(
+export function pick<O extends Record<string, any> = Record<string, any>, K extends(keyof O)[] = (keyof O)[]>(
   obj: O,
   keys: K
-): Pick<O, K[number]> | {} {
-  if (!isPlainObject(obj)) return {};
+): Pick<O, K[number]> {
+  if (!isPlainObject(obj)) return {} as any;
 
   return Object.keys(obj)
     .filter((key) => keys.indexOf(key as any) !== -1)
@@ -34,7 +34,7 @@ export function pick<O extends Record<string, any> = Record<string, any>, K exte
     );
 }
 
-export function omit<O extends Record<string, any> = Record<string, any>, K extends (keyof O)[] = (keyof O)[]>(
+export function omit<O extends Record<string, any> = Record<string, any>, K extends(keyof O)[] = (keyof O)[]>(
   obj: O,
   keys: K
 ): Omit<O, K[number]> {

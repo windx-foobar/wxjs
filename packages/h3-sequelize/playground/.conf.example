@@ -1,0 +1,4 @@
+database.storage=./testdb.sqlite3
+database.dialect=sqlite
+database.verbose=false
+database.models.dir=./database/models

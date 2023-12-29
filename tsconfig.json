@@ -22,7 +22,6 @@
     "**/.nuxt/**",
     "**/nuxt.d.ts",
     "**/examples/**",
-    "**/docs/**",
-    "**/playground/**"
+    "**/docs/**"
   ]
 }

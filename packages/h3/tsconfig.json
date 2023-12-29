@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "types": [
-      "./playground/h3-env.d.ts"
-    ]
-  }
-}

@@ -10,3 +10,8 @@ const _module = jiti(null, {
 })("/home/windx/Projects/nuxt-modules/wxjs/packages/sequelize/src/index.ts");
 
 export const defineSequelizeConnection = _module.defineSequelizeConnection;
+export const scanModelsFolder = _module.scanModelsFolder;
+export const defineModels = _module.defineModels;
+export const defineModel = _module.defineModel;
+export const isDefineModel = _module.isDefineModel;
+export const useModel = _module.useModel;

@@ -1,4 +1,4 @@
-import type { Options, Dialect } from 'sequelize';
+import type { Options, Dialect, Sequelize, DataTypes, Model } from 'sequelize';
 
 interface ExtendedOptions {
   verbose?: boolean;
@@ -17,3 +17,20 @@ type OptionsWithHostPortRequired = {
 } & Omit<Options, 'storage' | 'host' | 'port' | 'dialect'> & ExtendedOptions;
 
 export type ConnectionOptions = OptionsWithHostPortRequired | OptionsWithStorageRequired;
+
+declare interface ModelsMap {
+  Base: typeof Model;
+}
+
+export interface ModelDefinition {
+  __model_def__?: true;
+
+  (sequelize: Sequelize, dataTypes: typeof DataTypes):
+    | Promise<ModelDefinitionResult | void>
+    | ModelDefinitionResult
+    | void;
+}
+
+export interface ModelDefinitionResult {
+  association?(models: Omit<ModelsMap, 'Base'>): void | Promise<void>;
+}
