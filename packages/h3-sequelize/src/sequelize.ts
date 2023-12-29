@@ -16,7 +16,7 @@ export async function defineSequelize(app: App, options: ConnectionOptions) {
 
     const sequelize = await defineSequelizeConnection(options);
 
-    app.stack.unshift({
+    app.stack.push({
       route: '*',
       handler: eventHandler((event) => {
         event.context.sequelize = sequelize;
