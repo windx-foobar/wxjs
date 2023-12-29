@@ -1,4 +1,15 @@
-import { Model, CreationOptional, InferAttributes, InferCreationAttributes } from '@wxjs/sequelize/extra';
+import type { Certificate } from './certificate';
+import type { Service } from './service';
+import type { Post } from './post';
+import {
+  Model,
+  CreationOptional,
+  InferAttributes,
+  InferCreationAttributes,
+  NonAttribute,
+  HasManySetAssociationsMixin,
+  HasManyCreateAssociationMixin
+} from '@wxjs/sequelize/extra';
 import { defineModel } from '../../../src';
 
 declare module '@wxjs/sequelize' {
@@ -8,8 +19,19 @@ declare module '@wxjs/sequelize' {
 }
 
 export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
-  declare id: CreationOptional<number>;
+  declare id?: CreationOptional<number>;
   declare name: string;
+  declare email: string;
+  declare phone: CreationOptional<string> | null;
+
+  declare createdAt?: CreationOptional<Date>;
+  declare updatedAt?: CreationOptional<Date>;
+
+  declare certificate?: NonAttribute<Certificate>;
+  declare services?: NonAttribute<Service[]>;
+  declare setServices: HasManySetAssociationsMixin<Service, number>;
+  declare posts?: NonAttribute<Post[]>;
+  declare createPost: HasManyCreateAssociationMixin<Post>;
 }
 
 export default defineModel((sequelize, dataTypes) => {
@@ -20,11 +42,38 @@ export default defineModel((sequelize, dataTypes) => {
         autoIncrement: true,
         primaryKey: true
       },
+      email: {
+        type: dataTypes.STRING(255),
+        allowNull: false,
+        unique: {
+          name: 'email',
+          msg: 'E-mail уже используется'
+        },
+        validate: {
+          isEmail: {
+            msg: 'Поле должно быть e-mail'
+          }
+        }
+      },
+      phone: {
+        type: dataTypes.STRING(255),
+        allowNull: true
+      },
       name: {
         type: dataTypes.STRING(255),
         allowNull: false
-      }
+      },
+      createdAt: dataTypes.DATE,
+      updatedAt: dataTypes.DATE
     },
     { tableName: 'users', underscored: true, sequelize }
   );
+
+  return {
+    association({ Certificate, Service, Post }) {
+      User.hasOne(Certificate, { as: 'certificate', foreignKey: 'userId' });
+      User.hasMany(Post, { as: 'posts', foreignKey: 'userId' });
+      User.belongsToMany(Service, { through: 'users_services', as: 'services' });
+    }
+  };
 });

@@ -1,4 +1,5 @@
-database.storage=./testdb.sqlite3
+database.storage=./playground/testdb.sqlite3
 database.dialect=sqlite
 database.verbose=false
 database.models.dir=./database/models
+database.migrations.dir=./database/migrations
