@@ -18,7 +18,7 @@ type OptionsWithHostPortRequired = {
 
 export type ConnectionOptions = OptionsWithHostPortRequired | OptionsWithStorageRequired;
 
-declare interface ModelsMap {
+export interface ModelsMap {
   Base: typeof Model;
 }
 
