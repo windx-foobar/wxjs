@@ -1,12 +1,12 @@
 import type { User } from './user';
 import {
   Model,
-  CreationOptional,
-  InferAttributes,
-  InferCreationAttributes,
-  ForeignKey,
-  NonAttribute,
-  HasOneCreateAssociationMixin
+  type CreationOptional,
+  type InferAttributes,
+  type InferCreationAttributes,
+  type ForeignKey,
+  type NonAttribute,
+  type HasOneCreateAssociationMixin
 } from '@wxjs/sequelize/extra';
 import { defineModel } from '../../../src';
 

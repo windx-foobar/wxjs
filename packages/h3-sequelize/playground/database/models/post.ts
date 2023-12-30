@@ -1,5 +1,11 @@
 import type { User } from './user';
-import { Model, CreationOptional, InferAttributes, InferCreationAttributes, NonAttribute } from '@wxjs/sequelize/extra';
+import {
+  Model,
+  type CreationOptional,
+  type InferAttributes,
+  type InferCreationAttributes,
+  type NonAttribute
+} from '@wxjs/sequelize/extra';
 import { defineModel } from '../../../src';
 
 declare module '@wxjs/sequelize' {

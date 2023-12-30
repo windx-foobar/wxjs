@@ -3,12 +3,12 @@ import type { Service } from './service';
 import type { Post } from './post';
 import {
   Model,
-  CreationOptional,
-  InferAttributes,
-  InferCreationAttributes,
-  NonAttribute,
-  HasManySetAssociationsMixin,
-  HasManyCreateAssociationMixin
+  type CreationOptional,
+  type InferAttributes,
+  type InferCreationAttributes,
+  type NonAttribute,
+  type HasManySetAssociationsMixin,
+  type HasManyCreateAssociationMixin
 } from '@wxjs/sequelize/extra';
 import { defineModel } from '../../../src';
 
