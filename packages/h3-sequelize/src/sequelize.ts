@@ -16,7 +16,7 @@ export async function defineSequelize(app: App, options: ConnectionOptions) {
 
     const sequelize = await defineSequelizeConnection(options);
 
-    app.stack.push({
+    app.stack.unshift({
       route: '*',
       handler: eventHandler((event) => {
         event.context.sequelize = sequelize;
@@ -51,7 +51,7 @@ export function useSequelize(event: H3Event): Sequelize {
 
 export function useModel<T extends keyof Omit<ModelsMap, 'Base'>>(event: H3Event, modelName: T): ModelsMap[T] {
   const sequelize = useSequelize(event);
-  return _useModel(sequelize, modelName);
+  return _useModel(sequelize, modelName as any);
 }
 
 export async function defineModels(sequelize: Sequelize, modelsDir: string) {
