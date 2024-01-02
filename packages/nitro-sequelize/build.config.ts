@@ -1,33 +1,33 @@
-import { existsSync } from 'node:fs';
-import { writeFile } from 'node:fs/promises';
+// import { existsSync } from 'node:fs';
+// import { writeFile } from 'node:fs/promises';
 import { defineBuildConfig } from 'unbuild';
-import { resolve } from 'pathe';
+// import { resolve } from 'pathe';
 
 export default defineBuildConfig({
   declaration: true,
   entries: [
     'src/module',
     { input: 'src/runtime/', outDir: 'dist/runtime', ext: 'mjs' }
-  ],
-  rollup: {
-    emitCJS: false,
-    cjsBridge: true
-  },
-  hooks: {
-    async "rollup:done"(ctx) {
-      await writeCJSStub(ctx.options.outDir);
-    }
-  }
+  ]
+  // rollup: {
+  //   emitCJS: true,
+  //   cjsBridge: true
+  // },
+  // hooks: {
+  //   async "rollup:done"(ctx) {
+  //     await writeCJSStub(ctx.options.outDir);
+  //   }
+  // }
 });
 
-async function writeCJSStub(distDir) {
-  const cjsStubFile = resolve(distDir, "module.cjs");
-  if (existsSync(cjsStubFile)) {
-    return;
-  }
-  const cjsStub = `module.exports = function(...args) {
-  return import('./module.mjs').then(m => m.default.call(this, ...args))
-}
-`;
-  await writeFile(cjsStubFile, cjsStub, "utf8");
-}
+// async function writeCJSStub(distDir) {
+//   const cjsStubFile = resolve(distDir, "module.cjs");
+//   if (existsSync(cjsStubFile)) {
+//     return;
+//   }
+//   const cjsStub = `module.exports = function(...args) {
+//   return import('./module.mjs').then(m => m.default.call(this, ...args))
+// }
+// `;
+//   await writeFile(cjsStubFile, cjsStub, "utf8");
+// }

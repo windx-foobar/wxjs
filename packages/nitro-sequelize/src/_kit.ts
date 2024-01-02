@@ -4,6 +4,8 @@ import { resolve, dirname, normalize } from 'pathe';
 import { fileURLToPath } from "node:url";
 import { name } from '../package.json';
 
+export type _Nitro = Partial<Nitro> & Required<Pick<Nitro, 'options'>>;
+
 export function getName() {
   return name;
 }
@@ -25,7 +27,7 @@ export function createResolver(base: string | URL) {
   };
 }
 
-export function addPlugin(nitro: Nitro, plugin: string) {
+export function addPlugin(nitro: _Nitro, plugin: string) {
   nitro.options.plugins ||= [];
   nitro.options.plugins.push(normalize(plugin));
 }

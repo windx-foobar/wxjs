@@ -25,8 +25,10 @@ export interface ModelsMap {
 export interface ModelDefinition {
   __model_def__?: true;
 
-  (sequelize: Sequelize, dataTypes: typeof DataTypes): Promise<ModelDefinitionResult | void>;
-  (sequelize: Sequelize, dataTypes: typeof DataTypes): ModelDefinitionResult | void;
+  (sequelize: Sequelize, dataTypes: typeof DataTypes):
+    | Promise<ModelDefinitionResult | void>
+    | ModelDefinitionResult
+    | void;
 }
 
 export interface ModelDefinitionResult {
