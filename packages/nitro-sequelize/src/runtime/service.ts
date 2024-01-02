@@ -9,6 +9,7 @@ export function defineSequelize(nitroApp: NitroApp) {
 }
 
 export async function defineModels(sequelize: Sequelize) {
+  // @ts-ignore
   const modelsDefs = ((await import('#internal/sequelize/models'))?.models || []) as ModelDefinition[];
   return await _defineModels(sequelize, modelsDefs);
 }

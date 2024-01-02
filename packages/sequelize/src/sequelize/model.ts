@@ -33,7 +33,7 @@ export async function scanModelsFolder(modelsDir: string): Promise<ModelFolderIt
 }
 
 export async function defineModels(sequelize: Sequelize, modelsDefs: ModelDefinition[]): Promise<void> {
-  const modelsNeedAssociate: Required<ModelDefinitionResult>[] = [];
+  const modelsNeedAssociate: NonNullable<ModelDefinitionResult['association']>[] = [];
 
   if (!isArray(modelsDefs)) {
     throw createError({
@@ -42,33 +42,21 @@ export async function defineModels(sequelize: Sequelize, modelsDefs: ModelDefini
     });
   }
 
-  for (const modelDef of modelsDefs.filter((modelDef) => isDefineModel(modelDef))) {
-    let returnValue = modelDef(sequelize, DataTypes);
-    let returnLiteral = returnValue?.toString();
+  await Promise.all(
+    modelsDefs.filter((modelDef) => isDefineModel(modelDef)).map(async (modelDef) => {
+      const returnValue = await modelDef(sequelize, DataTypes);
 
-    if (returnLiteral === '[object Promise]') {
-      returnValue = await returnValue;
-      returnLiteral = returnValue?.toString();
-    }
-
-    if (returnValue) {
-      // @ts-ignore
-      if (returnValue.association) {
-        // @ts-ignore
-        modelsNeedAssociate.push(returnValue);
+      if (returnValue && returnValue.association) {
+        modelsNeedAssociate.push(returnValue.association);
       }
-    }
-  }
+    })
+  );
 
-  for (const modelAssociateFn of modelsNeedAssociate) {
-    // @ts-ignore
-    const returnValue = modelAssociateFn.association(sequelize.models as ModelsMap);
-    const returnLiteral = returnValue?.toString();
-
-    if (returnLiteral === '[object Promise]') {
-      await returnValue;
-    }
-  }
+  await Promise.all(
+    modelsNeedAssociate.map(async (assocExp) => {
+      await assocExp(sequelize.models as ModelsMap);
+    })
+  );
 }
 
 export function defineModel(def: ModelDefinition) {

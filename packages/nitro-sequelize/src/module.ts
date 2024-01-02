@@ -24,6 +24,7 @@ export default <NitroModule>{
 
     const modelsDir = resolve(nitroConfig.rootDir, sequelizeOptions.models?.dir);
     const migrationsDir = resolve(nitroConfig.rootDir, sequelizeOptions.migrations?.dir);
+    const storageDir = sequelizeOptions.dialect === 'sqlite' ? resolve(nitroConfig.rootDir, sequelizeOptions.storage) : undefined;
     const scannedModelsItems = await scanModelsFolder(modelsDir);
     const modelsMap = scannedModelsItems
       .map((item) => {
@@ -62,6 +63,7 @@ export const models = [
 
     nitroConfig.runtimeConfig.sequelize = defu(nitroConfig.runtimeConfig.sequelize, {
       ...sequelizeOptions,
+      storage: storageDir,
       migrations: { dir: migrationsDir },
       models: { dir: modelsDir }
     });

@@ -22,7 +22,7 @@
   "scripts": {
     "play": "nitro dev playground",
     "play:prepare": "nitro prepare playground",
-    "play-sequelize-cli": "CONFIG=./playground/.conf CONFIGKEY=database ./node_modules/.bin/wxjs-sequelize-cli",
+    "play-sequelize-cli": "cd ./playground && CONFIG=./.nitrorc CONFIGKEY=sequelize ../node_modules/.bin/wxjs-sequelize-cli",
     "dev": "unbuild --stub",
     "prepack": "unbuild"
   },
