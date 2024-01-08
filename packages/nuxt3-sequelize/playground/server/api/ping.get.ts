@@ -1,7 +1,7 @@
 import { useSequelize } from '#wxjs/sequelize';
 import { QueryTypes } from '#wxjs/sequelize/extra';
 
-export default defineEventHandler!(async (event) => {
+export default defineEventHandler(async (event) => {
   const sequelize = useSequelize(event);
 
   const nuxtPackage = await import('nuxt/package.json');

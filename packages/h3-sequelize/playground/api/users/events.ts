@@ -1,6 +1,6 @@
 import { defineEventHandler, createError, getRouterParam, readBody } from 'h3';
 import { isString, isNumeric, isArrayString } from '@wxjs/shared';
-import { useModel, useSequelize } from '../../../src';
+import { useModel, useSequelize, useTransaction } from '../../../src';
 
 export const index = defineEventHandler(async (event) => {
   const User = useModel(event, 'User');
@@ -38,26 +38,18 @@ export const show = defineEventHandler(async (event) => {
 export const remove = defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id');
 
-  const sequelize = useSequelize(event);
   const User = useModel(event, 'User');
 
   if (!id) throw createError({ statusCode: 500, statusMessage: 'Server error' });
 
-  let transaction;
-  try {
-    transaction = await sequelize.transaction();
+  return useTransaction(event, async (transaction) => {
     const user = await User.findByPk(id, { transaction });
-
     if (!user) throw createError({ statusMessage: 'User not found', statusCode: 404 });
 
     await user.destroy({ transaction });
 
-    await transaction.commit();
     return user;
-  } catch (error) {
-    if (transaction) await transaction.rollback();
-    throw error;
-  }
+  });
 });
 
 export const createPost = defineEventHandler(async (event) => {

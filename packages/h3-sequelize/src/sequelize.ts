@@ -1,5 +1,5 @@
 import { type App, eventHandler, type H3Event, isEvent } from 'h3';
-import { type ConnectionOptions, defineSequelizeConnection, useModel as _useModel, defineModels as _defineModels, scanModelsFolder, ModelDefinition, type ModelsMap } from '@wxjs/sequelize';
+import { type ConnectionOptions, defineSequelizeConnection, useModel as _useModel, defineModels as _defineModels, useTransaction as _useTransaction, scanModelsFolder, ModelDefinition, type ModelsMap } from '@wxjs/sequelize';
 import { type Sequelize } from '@wxjs/sequelize/extra';
 import { isUndefined } from '@wxjs/shared';
 import { createError } from './errors';
@@ -63,6 +63,14 @@ export async function defineModels(sequelize: Sequelize, modelsDir: string) {
   );
 
   return _defineModels(sequelize, modelsDefs);
+}
+
+export function useTransaction(
+  event: H3Event,
+  fn: Parameters<typeof _useTransaction>[1]
+): ReturnType<typeof _useTransaction> {
+  const sequelize = useSequelize(event);
+  return _useTransaction(sequelize, fn);
 }
 
 export { defineModel, isDefineModel } from '@wxjs/sequelize';

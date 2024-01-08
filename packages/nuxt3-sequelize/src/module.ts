@@ -47,7 +47,7 @@ export default defineNuxtModule<ModuleOptions>({
         });
     });
 
-    addServerPlugin(resolve('../node_modules', '@wxjs/nitro-sequelize/dist/runtime/plugin'));
+    addServerPlugin(resolve('./runtime/plugin'));
 
     // @ts-ignore
     nuxt.hook('prepare:types', (options) => {
