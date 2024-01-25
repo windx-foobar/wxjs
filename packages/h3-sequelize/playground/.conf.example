@@ -1,0 +1,5 @@
+database.storage=./playground/testdb.sqlite3
+database.dialect=sqlite
+database.verbose=false
+database.models.dir=./playground/database/models
+database.migrations.dir=./playground/database/migrations

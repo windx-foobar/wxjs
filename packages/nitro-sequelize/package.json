@@ -1,0 +1,56 @@
+{
+  "name": "@wxjs/nitro-sequelize",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "sequelize",
+    "nitro-sequelize"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windx-foobar/wxjs.git",
+    "directory": "packages/nitro-sequelize"
+  },
+  "main": "./dist/module.mjs",
+  "module": "./dist/module.mjs",
+  "types": "./dist/module.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "play": "nitro dev playground",
+    "play:prepare": "nitro prepare playground",
+    "play-sequelize-cli": "cd ./playground && CONFIG=./.nitrorc CONFIGKEY=sequelize ../node_modules/.bin/wxjs-sequelize-cli",
+    "dev": "unbuild --stub",
+    "prepack": "unbuild"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@8.13.1",
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "dependencies": {
+    "@wxjs/h3-sequelize": "workspace:*",
+    "@wxjs/sequelize": "workspace:*",
+    "@wxjs/shared": "workspace:*",
+    "consola": "^3.2.3",
+    "pathe": "^1.1.1",
+    "defu": "^6.1.3",
+    "knitwork": "^1.0.0"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.1.6",
+    "unbuild": "^2.0.0",
+    "nitropack": "^2.8.1",
+    "pathe": "^1.1.1",
+    "@wxjs/sequelize-cli": "workspace:*"
+  },
+  "peerDependencies": {
+    "nitropack": "^2.0.0"
+  }
+}

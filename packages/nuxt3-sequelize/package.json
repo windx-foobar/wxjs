@@ -1,0 +1,54 @@
+{
+  "name": "@wxjs/nuxt3-sequelize",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "sequelize",
+    "nuxt3-sequelize"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windx-foobar/wxjs.git",
+    "directory": "packages/nuxt3-sequelize"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "play": "nuxi dev playground",
+    "play:prepare": "nuxi prepare playground",
+    "play-sequelize-cli": "cd ./playground && CONFIG=./.nuxtrc CONFIGKEY=sequelize ../node_modules/.bin/wxjs-sequelize-cli",
+    "dev": "nuxt-module-build --stub",
+    "prepack": "nuxt-module-build"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@8.13.1",
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "dependencies": {
+    "@wxjs/nitro-sequelize": "workspace:*",
+    "@wxjs/sequelize": "workspace:*",
+    "consola": "^3.2.3",
+    "defu": "^6.1.3"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.1.6",
+    "nuxt": "^3.9.0",
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.0.0",
+    "@types/node": "^18.19.4",
+    "@wxjs/sequelize-cli": "workspace:*",
+    "@wxjs/h3-sequelize": "workspace:*",
+    "@wxjs/shared": "workspace:*"
+  },
+  "peerDependencies": {
+    "@nuxt/kit": "^3.0.0"
+  }
+}

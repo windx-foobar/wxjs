@@ -1,0 +1,5 @@
+sequelize.storage=./testdb.sqlite3
+sequelize.dialect=sqlite
+sequelize.verbose=false
+sequelize.models.dir=./database/models
+sequelize.migrations.dir=./database/migrations

@@ -1,0 +1,5 @@
+playground/*.sqlite*
+playground/.nitrorc
+playground/.nitro
+playground/.output
+.conf

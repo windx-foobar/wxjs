@@ -1,0 +1,36 @@
+{
+  "name": "@wxjs/shared",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "utils"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windx-foobar/wxjs.git",
+    "directory": "packages/shared"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "prepack": "unbuild"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@8.13.1",
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "devDependencies": {
+    "unbuild": "^2.0.0"
+  }
+}

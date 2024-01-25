@@ -1,0 +1,42 @@
+{
+  "name": "@wxjs/sequelize-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windx-foobar/wxjs.git",
+    "directory": "packages/sequelize"
+  },
+  "bin": {
+    "wxjs-sequelize-cli": "./bin/sequelize-cli.mjs"
+  },
+  "exports": {
+    ".": "./dist/cli.mjs",
+    "./cli": "./dist/cli.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "bin"],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "prepack": "unbuild"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@8.13.1",
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "dependencies": {
+    "sequelize-cli": "^6.6.2",
+    "pathe": "^1.1.1",
+    "citty": "^0.1.5",
+    "execa": "^8.0.1",
+    "defu": "^6.1.3",
+    "jiti": "^1.21.0",
+    "rc9": "^2.1.1",
+    "@wxjs/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "unbuild": "^2.0.0",
+    "@wxjs/sequelize": "workspace:*"
+  }
+}
