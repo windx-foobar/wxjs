@@ -3,8 +3,8 @@ import fsp from 'node:fs/promises';
 import { defu } from 'defu';
 import { genSafeVariableName } from 'knitwork';
 import * as pathe from 'pathe';
-import { isPlainObject } from '@wxjs/shared';
-import { scanModelsFolder, type ConnectionOptions } from '@wxjs/sequelize';
+import { isPlainObject } from '@windx-foobar/shared';
+import { scanModelsFolder, type ConnectionOptions } from '@windx-foobar/sequelize';
 import { getName, useLogger, createResolver, addPlugin, type _Nitro } from './_kit';
 
 const NAME = getName();
@@ -39,7 +39,7 @@ export async function createConfig(nitro: _Nitro) {
   });
 
   nitroConfig.alias['#wxjs/sequelize'] = resolve('./runtime/service');
-  nitroConfig.alias['#wxjs/sequelize/extra'] = resolve('../node_modules', '@wxjs/sequelize/dist/extra');
+  nitroConfig.alias['#wxjs/sequelize/extra'] = resolve('../node_modules', '@windx-foobar/sequelize/dist/extra');
 
   const scannedModelsItemsImports = scannedModelsItems
     .map((item) => {
@@ -85,14 +85,14 @@ export const models = [
           `  export * from '${pathe.relative(buildDirTypesDir, resolve('./runtime/service'))}'`,
           '}',
           `declare module '#wxjs/sequelize/extra' {`,
-          `  export * from '@wxjs/sequelize/extra'`,
+          `  export * from '@windx-foobar/sequelize/extra'`,
           '}'
         ].join('\n')
       },
       {
         name: 'nitro-sequelize-env.d.ts',
         content: [
-          `declare module '@wxjs/sequelize' {`,
+          `declare module '@windx-foobar/sequelize' {`,
           '  interface ModelsMap {',
           `    ${modelsMap}`,
           '  }',

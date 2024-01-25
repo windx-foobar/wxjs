@@ -1,6 +1,6 @@
 import '@nuxt/schema';
-import { createConfig } from '@wxjs/nitro-sequelize';
-import { type ConnectionOptions } from '@wxjs/sequelize';
+import { createConfig } from '@windx-foobar/nitro-sequelize';
+import { type ConnectionOptions } from '@windx-foobar/sequelize';
 import { defineNuxtModule, addTemplate, createResolver, addServerPlugin } from '@nuxt/kit';
 import { defu } from 'defu';
 import { getName } from './_kit';

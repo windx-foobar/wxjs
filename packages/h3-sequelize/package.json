@@ -1,5 +1,5 @@
 {
-  "name": "@wxjs/h3-sequelize",
+  "name": "@windx-foobar/h3-sequelize",
   "version": "1.0.0",
   "type": "module",
   "keywords": [
@@ -38,8 +38,8 @@
     "node": "^14.18.0 || >=16.10.0"
   },
   "dependencies": {
-    "@wxjs/sequelize": "workspace:*",
-    "@wxjs/shared": "workspace:*",
+    "@windx-foobar/sequelize": "workspace:*",
+    "@windx-foobar/shared": "workspace:*",
     "consola": "^3.2.3"
   },
   "devDependencies": {
@@ -52,7 +52,7 @@
     "get-port-please": "^3.1.1",
     "rc9": "^2.1.1",
     "defu": "^6.1.3",
-    "@wxjs/sequelize-cli": "workspace:*"
+    "@windx-foobar/sequelize-cli": "workspace:*"
   },
   "peerDependencies": {
     "h3": "^1.9.0"

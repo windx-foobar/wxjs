@@ -1,7 +1,7 @@
-import type { QueryInterface } from '@wxjs/sequelize/extra';
+import type { QueryInterface } from '@windx-foobar/sequelize/extra';
 
 export default {
-  up: async (queryInterface: QueryInterface, Sequelize: typeof import('@wxjs/sequelize/extra')) => {
+  up: async (queryInterface: QueryInterface, Sequelize: typeof import('@windx-foobar/sequelize/extra')) => {
     await queryInterface.createTable('users', {
       id: {
         type: Sequelize.DataTypes.INTEGER,

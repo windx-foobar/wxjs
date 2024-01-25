@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import { read } from 'rc9';
-import { type ConnectionOptions } from '@wxjs/sequelize';
+import { type ConnectionOptions } from '@windx-foobar/sequelize';
 import { defu } from 'defu';
 
 interface Config {

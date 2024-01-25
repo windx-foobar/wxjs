@@ -5,10 +5,10 @@ import {
   type InferAttributes,
   type InferCreationAttributes,
   type NonAttribute
-} from '@wxjs/sequelize/extra';
+} from '@windx-foobar/sequelize/extra';
 import { defineModel } from '../../../src';
 
-declare module '@wxjs/sequelize' {
+declare module '@windx-foobar/sequelize' {
   interface ModelsMap {
     Post: typeof Post;
   }

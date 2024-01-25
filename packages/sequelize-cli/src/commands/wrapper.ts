@@ -1,10 +1,10 @@
-import type { ConnectionOptions } from '@wxjs/sequelize';
+import type { ConnectionOptions } from '@windx-foobar/sequelize';
 import { defineCommand, type ArgsDef } from 'citty';
 import { resolve } from 'pathe';
 import { defu } from 'defu';
 import { execa, type Options } from 'execa';
 import { read } from 'rc9';
-import { isString } from '@wxjs/shared';
+import { isString } from '@windx-foobar/shared';
 import { createError } from '../errors';
 import { findSequelizeCli } from '../_utils';
 

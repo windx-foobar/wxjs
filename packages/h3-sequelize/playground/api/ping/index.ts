@@ -1,5 +1,5 @@
 import { createRouter, eventHandler } from 'h3';
-import { QueryTypes } from '@wxjs/sequelize/extra';
+import { QueryTypes } from '@windx-foobar/sequelize/extra';
 import { useSequelize } from '../../../src';
 
 const router = createRouter();
@@ -10,7 +10,7 @@ router.get('/api/ping', eventHandler(async (event) => {
   // @ts-ignore
   const h3Package = await import('h3/package.json');
   const h3SequelizePackage = await import('../../../package.json');
-  const wxjsSequelizePackage = await import('@wxjs/sequelize/package.json');
+  const wxjsSequelizePackage = await import('@windx-foobar/sequelize/package.json');
   const [sqliteResult] = await sequelize.query('SELECT sqlite_version();', {
     type: QueryTypes.SELECT
   });
@@ -19,8 +19,8 @@ router.get('/api/ping', eventHandler(async (event) => {
     message: 'pong',
     stack: {
       h3: h3Package.version,
-      '@wxjs/sequelize': wxjsSequelizePackage.version,
-      '@wxjs/h3-sequelize': h3SequelizePackage.version,
+      '@windx-foobar/sequelize': wxjsSequelizePackage.version,
+      '@windx-foobar/h3-sequelize': h3SequelizePackage.version,
       'sqlite': sqliteResult['sqlite_version()']
     }
   };

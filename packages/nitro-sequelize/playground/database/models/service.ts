@@ -1,6 +1,6 @@
 // noinspection JSAnnotator
 
-import { isNullOrUndefined } from '@wxjs/shared';
+import { isNullOrUndefined } from '@windx-foobar/shared';
 import type { User } from './user';
 import { defineModel } from '#wxjs/sequelize';
 import {

@@ -9,10 +9,10 @@ import {
   type NonAttribute,
   type HasManySetAssociationsMixin,
   type HasManyCreateAssociationMixin
-} from '@wxjs/sequelize/extra';
+} from '@windx-foobar/sequelize/extra';
 import { defineModel } from '../../../src';
 
-declare module '@wxjs/sequelize' {
+declare module '@windx-foobar/sequelize' {
   interface ModelsMap {
     User: typeof User;
   }

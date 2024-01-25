@@ -7,10 +7,10 @@ import {
   type ForeignKey,
   type NonAttribute,
   type HasOneCreateAssociationMixin
-} from '@wxjs/sequelize/extra';
+} from '@windx-foobar/sequelize/extra';
 import { defineModel } from '../../../src';
 
-declare module '@wxjs/sequelize' {
+declare module '@windx-foobar/sequelize' {
   interface ModelsMap {
     Certificate: typeof Certificate;
   }

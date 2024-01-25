@@ -3,7 +3,7 @@ import { type Sequelize, DataTypes } from 'sequelize';
 import { globby } from 'globby';
 import { parse } from 'pathe';
 import { hash } from 'ohash';
-import { isArray } from '@wxjs/shared';
+import { isArray } from '@windx-foobar/shared';
 import { createError } from '../errors';
 
 interface ModelFolderItem {

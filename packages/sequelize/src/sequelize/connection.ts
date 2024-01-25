@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import { isBoolean, isUndefined } from '@wxjs/shared';
+import { isBoolean, isUndefined } from '@windx-foobar/shared';
 import { ConnectionOptions } from './types';
 import { checkConnectionOptions } from './_utils';
 import { createError } from '../errors';

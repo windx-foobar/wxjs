@@ -6,9 +6,9 @@ export default defineEventHandler(async (event) => {
 
   const nuxtPackage = await import('nuxt/package.json');
   const nuxtSequelizePackage = await import('../../../package.json');
-  const nitroSequelizePackage = await import('@wxjs/nitro-sequelize/package.json');
-  const h3SequelizePackage = await import('@wxjs/h3-sequelize/package.json');
-  const sequelizePackage = await import('@wxjs/sequelize/package.json');
+  const nitroSequelizePackage = await import('@windx-foobar/nitro-sequelize/package.json');
+  const h3SequelizePackage = await import('@windx-foobar/h3-sequelize/package.json');
+  const sequelizePackage = await import('@windx-foobar/sequelize/package.json');
   const [sqliteResult] = await sequelize.query('SELECT sqlite_version();', {
     type: QueryTypes.SELECT
   });
@@ -17,10 +17,10 @@ export default defineEventHandler(async (event) => {
     message: 'pong',
     stack: {
       nuxt: nuxtPackage.version,
-      '@wxjs/sequelize': sequelizePackage.version,
-      '@wxjs/h3-sequelize': h3SequelizePackage.version,
-      '@wxjs/nitro-sequelize': nitroSequelizePackage.version,
-      '@wxjs/nuxt3-sequelize': nuxtSequelizePackage.version,
+      '@windx-foobar/sequelize': sequelizePackage.version,
+      '@windx-foobar/h3-sequelize': h3SequelizePackage.version,
+      '@windx-foobar/nitro-sequelize': nitroSequelizePackage.version,
+      '@windx-foobar/nuxt3-sequelize': nuxtSequelizePackage.version,
       'sqlite': sqliteResult['sqlite_version()']
     }
   };

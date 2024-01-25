@@ -9,11 +9,11 @@ import {
   type FindOptions,
   type Attributes,
   type ModelStatic
-} from '@wxjs/sequelize/extra';
-import { isNullOrUndefined } from '@wxjs/shared';
+} from '@windx-foobar/sequelize/extra';
+import { isNullOrUndefined } from '@windx-foobar/shared';
 import { defineModel } from '../../../src';
 
-declare module '@wxjs/sequelize' {
+declare module '@windx-foobar/sequelize' {
   interface ModelsMap {
     Service: typeof Service;
   }

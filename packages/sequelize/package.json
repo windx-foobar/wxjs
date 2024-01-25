@@ -1,5 +1,5 @@
 {
-  "name": "@wxjs/sequelize",
+  "name": "@windx-foobar/sequelize",
   "version": "1.0.0",
   "type": "module",
   "keywords": [
@@ -42,7 +42,7 @@
     "globby": "^14.0.0",
     "pathe": "^1.1.1",
     "ohash": "^1.1.3",
-    "@wxjs/shared": "workspace:*"
+    "@windx-foobar/shared": "workspace:*"
   },
   "devDependencies": {
     "unbuild": "^2.0.0"

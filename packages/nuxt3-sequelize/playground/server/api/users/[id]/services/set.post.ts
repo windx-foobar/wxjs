@@ -1,4 +1,4 @@
-import { isArrayString, isNumeric } from '@wxjs/shared';
+import { isArrayString, isNumeric } from '@windx-foobar/shared';
 import { useModel, useSequelize } from '#wxjs/sequelize';
 
 export default defineEventHandler(async (event) => {

@@ -1,5 +1,5 @@
 import { defineEventHandler, createError, getRouterParam, readBody } from 'h3';
-import { isNumeric, isArrayString } from '@wxjs/shared';
+import { isNumeric, isArrayString } from '@windx-foobar/shared';
 import { useModel, useSequelize, useTransaction } from '../../../src';
 
 export const index = defineEventHandler(async (event) => {

@@ -1,7 +1,7 @@
 import { type NitroApp } from 'nitropack';
-import { defineModels as _defineModels, type ModelDefinition } from '@wxjs/sequelize';
-import { type Sequelize } from '@wxjs/sequelize/extra';
-import { defineSequelize as _defineSequelize } from '@wxjs/h3-sequelize';
+import { defineModels as _defineModels, type ModelDefinition } from '@windx-foobar/sequelize';
+import { type Sequelize } from '@windx-foobar/sequelize/extra';
+import { defineSequelize as _defineSequelize } from '@windx-foobar/h3-sequelize';
 
 export function defineSequelize(nitroApp: NitroApp) {
   const { sequelize: sequelizeConfig } = useRuntimeConfig();
@@ -14,4 +14,4 @@ export async function defineModels(sequelize: Sequelize) {
   return await _defineModels(sequelize, modelsDefs);
 }
 
-export { useSequelize, defineModel, useModel, isDefineModel } from '@wxjs/h3-sequelize';
+export { useSequelize, defineModel, useModel, isDefineModel } from '@windx-foobar/h3-sequelize';

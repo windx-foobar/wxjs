@@ -1,3 +1,3 @@
 import { consola } from 'consola';
 
-export const logger = consola.withTag('@wxjs/h3-sequelize');
+export const logger = consola.withTag('@windx-foobar/h3-sequelize');

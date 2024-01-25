@@ -1,5 +1,5 @@
 {
-  "name": "@wxjs/nuxt3-sequelize",
+  "name": "@windx-foobar/nuxt3-sequelize",
   "version": "1.0.0",
   "type": "module",
   "keywords": [
@@ -33,8 +33,8 @@
     "node": "^14.18.0 || >=16.10.0"
   },
   "dependencies": {
-    "@wxjs/nitro-sequelize": "workspace:*",
-    "@wxjs/sequelize": "workspace:*",
+    "@windx-foobar/nitro-sequelize": "workspace:*",
+    "@windx-foobar/sequelize": "workspace:*",
     "consola": "^3.2.3",
     "defu": "^6.1.3"
   },
@@ -44,9 +44,9 @@
     "@nuxt/module-builder": "^0.2.1",
     "@nuxt/schema": "^3.0.0",
     "@types/node": "^18.19.4",
-    "@wxjs/sequelize-cli": "workspace:*",
-    "@wxjs/h3-sequelize": "workspace:*",
-    "@wxjs/shared": "workspace:*"
+    "@windx-foobar/sequelize-cli": "workspace:*",
+    "@windx-foobar/h3-sequelize": "workspace:*",
+    "@windx-foobar/shared": "workspace:*"
   },
   "peerDependencies": {
     "@nuxt/kit": "^3.0.0"

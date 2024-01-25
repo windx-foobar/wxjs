@@ -1,7 +1,7 @@
 import { type App, eventHandler, type H3Event, isEvent } from 'h3';
-import { type ConnectionOptions, defineSequelizeConnection, useModel as _useModel, defineModels as _defineModels, useTransaction as _useTransaction, scanModelsFolder, ModelDefinition, type ModelsMap } from '@wxjs/sequelize';
-import { type Sequelize } from '@wxjs/sequelize/extra';
-import { isUndefined } from '@wxjs/shared';
+import { type ConnectionOptions, defineSequelizeConnection, useModel as _useModel, defineModels as _defineModels, useTransaction as _useTransaction, scanModelsFolder, ModelDefinition, type ModelsMap } from '@windx-foobar/sequelize';
+import { type Sequelize } from '@windx-foobar/sequelize/extra';
+import { isUndefined } from '@windx-foobar/shared';
 import { createError } from './errors';
 import { logger } from './_logger';
 
@@ -69,4 +69,4 @@ export function useTransaction(
   return _useTransaction(sequelize, fn);
 }
 
-export { defineModel, isDefineModel } from '@wxjs/sequelize';
+export { defineModel, isDefineModel } from '@windx-foobar/sequelize';

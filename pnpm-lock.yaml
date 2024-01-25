@@ -29,17 +29,17 @@ importers:
 
   packages/h3-sequelize:
     dependencies:
-      '@wxjs/sequelize':
+      '@windx-foobar/sequelize':
         specifier: workspace:*
         version: link:../sequelize
-      '@wxjs/shared':
+      '@windx-foobar/shared':
         specifier: workspace:*
         version: link:../shared
       consola:
         specifier: ^3.2.3
         version: 3.2.3
     devDependencies:
-      '@wxjs/sequelize-cli':
+      '@windx-foobar/sequelize-cli':
         specifier: workspace:*
         version: link:../sequelize-cli
       defu:
@@ -72,13 +72,13 @@ importers:
 
   packages/nitro-sequelize:
     dependencies:
-      '@wxjs/h3-sequelize':
+      '@windx-foobar/h3-sequelize':
         specifier: workspace:*
         version: link:../h3-sequelize
-      '@wxjs/sequelize':
+      '@windx-foobar/sequelize':
         specifier: workspace:*
         version: link:../sequelize
-      '@wxjs/shared':
+      '@windx-foobar/shared':
         specifier: workspace:*
         version: link:../shared
       consola:
@@ -94,7 +94,7 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
     devDependencies:
-      '@wxjs/sequelize-cli':
+      '@windx-foobar/sequelize-cli':
         specifier: workspace:*
         version: link:../sequelize-cli
       nitropack:
@@ -112,10 +112,10 @@ importers:
       '@nuxt/kit':
         specifier: ^3.0.0
         version: 3.9.0(rollup@3.29.4)
-      '@wxjs/nitro-sequelize':
+      '@windx-foobar/nitro-sequelize':
         specifier: workspace:*
         version: link:../nitro-sequelize
-      '@wxjs/sequelize':
+      '@windx-foobar/sequelize':
         specifier: workspace:*
         version: link:../sequelize
       consola:
@@ -134,13 +134,13 @@ importers:
       '@types/node':
         specifier: ^18.19.4
         version: 18.19.4
-      '@wxjs/h3-sequelize':
+      '@windx-foobar/h3-sequelize':
         specifier: workspace:*
         version: link:../h3-sequelize
-      '@wxjs/sequelize-cli':
+      '@windx-foobar/sequelize-cli':
         specifier: workspace:*
         version: link:../sequelize-cli
-      '@wxjs/shared':
+      '@windx-foobar/shared':
         specifier: workspace:*
         version: link:../shared
       nuxt:
@@ -152,7 +152,7 @@ importers:
 
   packages/sequelize:
     dependencies:
-      '@wxjs/shared':
+      '@windx-foobar/shared':
         specifier: workspace:*
         version: link:../shared
       consola:
@@ -177,7 +177,7 @@ importers:
 
   packages/sequelize-cli:
     dependencies:
-      '@wxjs/shared':
+      '@windx-foobar/shared':
         specifier: workspace:*
         version: link:../shared
       citty:
@@ -202,7 +202,7 @@ importers:
         specifier: ^6.6.2
         version: 6.6.2
     devDependencies:
-      '@wxjs/sequelize':
+      '@windx-foobar/sequelize':
         specifier: workspace:*
         version: link:../sequelize
       unbuild:
