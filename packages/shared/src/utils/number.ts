@@ -7,5 +7,5 @@ export const isNumber = (maybeUndef: unknown): maybeUndef is number => {
 export const isNumeric = (maybeUndef: unknown): maybeUndef is number | string => {
   if (isNumber(maybeUndef)) return true;
 
-  return isString(maybeUndef) && !isNaN(+maybeUndef);
+  return isString(maybeUndef) && maybeUndef !== '' && !isNaN(+maybeUndef);
 };
