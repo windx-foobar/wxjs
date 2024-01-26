@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/nitro-sequelize",
-  "version": "1.0.0",
+  "version": "v1.0.1",
   "type": "module",
   "keywords": [
     "sequelize",
@@ -21,7 +21,9 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "play": "nitro dev playground",
     "play:prepare": "nitro prepare playground",

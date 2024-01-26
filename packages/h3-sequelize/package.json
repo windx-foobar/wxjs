@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/h3-sequelize",
-  "version": "1.0.0",
+  "version": "v1.0.1",
   "type": "module",
   "keywords": [
     "sequelize",

@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/sequelize-cli",
-  "version": "1.0.0",
+  "version": "v1.0.1",
   "type": "module",
   "repository": {
     "type": "git",
@@ -15,7 +15,10 @@
     "./cli": "./dist/cli.mjs",
     "./package.json": "./package.json"
   },
-  "files": ["dist", "bin"],
+  "files": [
+    "dist",
+    "bin"
+  ],
   "scripts": {
     "dev": "unbuild --stub",
     "prepack": "unbuild"

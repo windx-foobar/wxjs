@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/shared",
-  "version": "1.0.0",
+  "version": "v1.0.1",
   "type": "module",
   "keywords": [
     "utils"
@@ -20,7 +20,9 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "unbuild --stub",
     "prepack": "unbuild"

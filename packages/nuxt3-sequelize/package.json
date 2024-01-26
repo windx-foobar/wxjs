@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/nuxt3-sequelize",
-  "version": "1.0.0",
+  "version": "v1.0.1",
   "type": "module",
   "keywords": [
     "sequelize",
@@ -19,7 +19,9 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "play": "nuxi dev playground",
     "play:prepare": "nuxi prepare playground",

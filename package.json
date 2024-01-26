@@ -31,6 +31,9 @@
     "@types/node": "^18.15.0",
     "typescript": "5.3.3",
     "unbuild": "^2.0.0",
-    "changelogen": "^0.5.5"
+    "changelogen": "^0.5.5",
+    "pathe": "^1.1.1",
+    "globby": "^14.0.0",
+    "jiti": "^1.21.0"
   }
 }

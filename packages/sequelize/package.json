@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/sequelize",
-  "version": "1.0.0",
+  "version": "v1.0.1",
   "type": "module",
   "keywords": [
     "sequelize"
@@ -26,7 +26,11 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist", "extra.d.ts", "env.d.ts"],
+  "files": [
+    "dist",
+    "extra.d.ts",
+    "env.d.ts"
+  ],
   "scripts": {
     "dev": "unbuild --stub",
     "prepack": "unbuild"
