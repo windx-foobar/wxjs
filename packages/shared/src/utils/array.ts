@@ -7,6 +7,8 @@ export const isArray = <T extends unknown[] = unknown[]>(maybeArr: unknown): may
 
 export const isArrayString = (maybeArr: unknown): maybeArr is string[] => {
   if (!isArray(maybeArr)) return false;
+  if (!maybeArr.length) return false;
+
   return maybeArr.every(isString);
 };
 
@@ -14,5 +16,7 @@ export const isArrayPlainObject = <T extends Record<string, any> = Record<string
   maybeArr: unknown
 ): maybeArr is T => {
   if (!isArray(maybeArr)) return false;
+  if (!maybeArr.length) return false;
+
   return maybeArr.every(isPlainObject);
 };
