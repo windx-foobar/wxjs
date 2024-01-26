@@ -16,6 +16,7 @@ export const isNullOrUndefined = (maybeAny: unknown): maybeAny is undefined | nu
   return isNull(maybeAny) || isUndefined(maybeAny);
 };
 
+// TODO: ADD tryPick and tryOmit and throw errors on pick and omit when not plainObject
 export function pick<O extends Record<string, any> = Record<string, any>, K extends(keyof O)[] = (keyof O)[]>(
   obj: O,
   keys: K
