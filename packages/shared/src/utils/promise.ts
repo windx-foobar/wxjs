@@ -21,10 +21,10 @@ export const isThenable: IsThenable = (param) => {
   if (isPromise(param)) return true;
   if (isArray(param) || isNull(param) || typeof param !== 'object') return false;
 
-  return Object.prototype.hasOwnProperty.call(param, 'then');
+  return 'then' in param!;
 };
 
 // @ts-ignore
 export const isPromiseLike: IsPromiseLike = (param) => {
-  return isThenable(param) && Object.prototype.hasOwnProperty.call(param, 'catch');
+  return isThenable(param) && 'catch' in param;
 };

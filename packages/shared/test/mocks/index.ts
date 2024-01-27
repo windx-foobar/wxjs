@@ -54,7 +54,7 @@ export const MOCK_VALUES: MockValue[] = [
   defaultsSchema({ value: new EmptyClass(), view: 'EmptyClass {}', _truthy: true, _class: true }),
   defaultsSchema({
     value: new FilledClass(),
-    view: `FilledClass { foo = 'bar', bar = 'baz' }`,
+    view: `FilledClass { foo: 'bar', bar: 'baz' }`,
     _truthy: true,
     _class: true
   }),
@@ -90,12 +90,12 @@ export const MOCK_VALUES: MockValue[] = [
   defaultsSchema({ value: true, _boolean: true, _truthy: true }),
   defaultsSchema({ value: undefined, _undefined: true, _falsy: true }),
   defaultsSchema({ value: null, _falsy: true, _null: true }),
-  defaultsSchema({ value: emptyPromise, _promise: true, _promiseLike: true, _thenable: true }),
-  defaultsSchema({ value: resultPromise, _promise: true, _promiseLike: true, _thenable: true }),
-  defaultsSchema({ value: emptyPromiseLike, _promiseLike: true, _thenable: true }),
-  defaultsSchema({ value: resultPromiseLike, _promiseLike: true, _thenable: true }),
-  defaultsSchema({ value: emptyThenable, _thenable: true }),
-  defaultsSchema({ value: resultThenable, _thenable: true })
+  defaultsSchema({ value: emptyPromise, _promise: true, _promiseLike: true, _thenable: true, _truthy: true }),
+  defaultsSchema({ value: resultPromise, _promise: true, _promiseLike: true, _thenable: true, _truthy: true }),
+  defaultsSchema({ value: emptyPromiseLike, _promiseLike: true, _thenable: true, _truthy: true }),
+  defaultsSchema({ value: resultPromiseLike, _promiseLike: true, _thenable: true, _truthy: true }),
+  defaultsSchema({ value: emptyThenable, _thenable: true, _truthy: true }),
+  defaultsSchema({ value: resultThenable, _thenable: true, _truthy: true })
 ];
 
 export * from './class';
