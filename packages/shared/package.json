@@ -25,7 +25,8 @@
   ],
   "scripts": {
     "dev": "unbuild --stub",
-    "prepack": "unbuild"
+    "prepack": "unbuild",
+    "test": "vitest"
   },
   "license": "MIT",
   "packageManager": "pnpm@8.13.1",
