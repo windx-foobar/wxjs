@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/sequelize",
-  "version": "v1.0.1",
+  "version": "1.0.1",
   "type": "module",
   "keywords": [
     "sequelize"
@@ -33,7 +33,8 @@
   ],
   "scripts": {
     "dev": "unbuild --stub",
-    "prepack": "unbuild"
+    "prepack": "unbuild",
+    "test": "vitest"
   },
   "license": "MIT",
   "packageManager": "pnpm@8.13.1",
@@ -49,6 +50,7 @@
     "@windx-foobar/shared": "workspace:*"
   },
   "devDependencies": {
-    "unbuild": "^2.0.0"
+    "unbuild": "^2.0.0",
+    "vitest": "^1.2.1"
   }
 }

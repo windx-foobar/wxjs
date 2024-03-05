@@ -1,6 +1,6 @@
 {
   "name": "@windx-foobar/nitro-sequelize",
-  "version": "v1.0.1",
+  "version": "1.0.1",
   "type": "module",
   "keywords": [
     "sequelize",
