@@ -11,13 +11,17 @@ export function createError(options: CreateErrorOptions) {
   let _err;
 
   switch (true) {
-    case Object.keys(SequelizeErrors).indexOf(options.name) !== -1:
-      _err = SequelizeErrors[options.name];
+    case Object.keys(SequelizeErrors).includes(options.name):
+      _err = SequelizeErrors[options.name as keyof typeof SequelizeErrors];
       break;
 
-    case Object.keys(RuntimeErrors).indexOf(options.name) !== -1:
-      _err = RuntimeErrors[options.name];
+    case Object.keys(RuntimeErrors).includes(options.name):
+      _err = RuntimeErrors[options.name as keyof typeof RuntimeErrors];
       break;
+
+    case true:
+    default:
+      _err = Error;
   }
 
   const err = new _err(options.message);
