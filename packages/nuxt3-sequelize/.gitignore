@@ -1,4 +1,4 @@
 playground/*.sqlite*
 playground/.nuxtrc
-playground/.nuxt3
+playground/.nuxt
 playground/.output

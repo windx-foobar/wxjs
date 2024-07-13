@@ -1,5 +1,5 @@
 {
-  "extends": "../.nuxt3/tsconfig.server.json",
+  "extends": "../.nuxt/tsconfig.server.json",
   "compilerOptions": {
     "baseUrl": ".",
     "strict": false
