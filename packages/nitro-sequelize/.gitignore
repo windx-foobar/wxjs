@@ -3,3 +3,6 @@ playground/.nitrorc
 playground/.nitro
 playground/.output
 .conf
+.idea/*
+!.idea/codeStyles
+!.idea/prettier.xml

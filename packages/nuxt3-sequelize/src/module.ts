@@ -36,7 +36,7 @@ export default defineNuxtModule<ModuleOptions>({
           sequelize: defu(runtimeConfig.sequelize || {}, options),
           devServer: nuxt.options.devServer
         }) as any
-      });
+      }, true);
 
       createTypes()
         .forEach((typeMeta) => {

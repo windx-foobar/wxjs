@@ -5,11 +5,13 @@ import { genSafeVariableName } from 'knitwork';
 import * as pathe from 'pathe';
 import { isPlainObject } from '@windx-foobar/shared';
 import { scanModelsFolder, type ConnectionOptions } from '@windx-foobar/sequelize';
+import * as mlly from 'mlly';
+
 import { getName, useLogger, createResolver, addPlugin, type _Nitro } from './_kit';
 
 const NAME = getName();
 
-export async function createConfig(nitro: _Nitro) {
+export async function createConfig(nitro: _Nitro, isNuxt: boolean = false) {
   const { resolve } = createResolver(import.meta.url);
   const { buildDir } = nitro.options;
   const buildDirTypesDir = pathe.resolve(buildDir, 'types');
@@ -32,14 +34,27 @@ export async function createConfig(nitro: _Nitro) {
   nitroConfig.alias ||= {};
   nitroConfig.virtual ||= {};
   nitroConfig.scanDirs ||= [];
+
   nitroTsConfig.tsConfig ||= {};
+  nitroTsConfig.tsConfig!.compilerOptions ||= {};
+  nitroTsConfig.tsConfig!.compilerOptions.paths ||= {};
+
+  const sequelizeExtraFilePath = await mlly.resolve('@windx-foobar/sequelize/extra');
+  const sequelizeExtraURL = new URL(sequelizeExtraFilePath);
 
   nitroConfig.externals = defu(isPlainObject(nitroConfig.externals) ? nitroConfig.externals : {}, {
     inline: [resolve('./runtime')] as any
   });
 
   nitroConfig.alias['#wxjs/sequelize'] = resolve('./runtime/service');
-  nitroConfig.alias['#wxjs/sequelize/extra'] = resolve('../node_modules', '@windx-foobar/sequelize/dist/extra');
+  nitroTsConfig.tsConfig!.compilerOptions.paths['#wxjs/sequelize'] = [
+    pathe.relative(typesDir, pathe.resolve(typesDir, isNuxt ? 'types' : undefined, './nitro-sequelize-service.d.ts'))
+  ];
+
+  nitroConfig.alias['#wxjs/sequelize/extra'] = sequelizeExtraURL.pathname;
+  nitroTsConfig.tsConfig!.compilerOptions.paths['#wxjs/sequelize/extra'] = [
+    pathe.relative(typesDir, pathe.resolve(typesDir, isNuxt ? 'types' : undefined, './nitro-sequelize-extra.d.ts'))
+  ];
 
   const scannedModelsItemsImports = scannedModelsItems
     .map((item) => {
@@ -74,32 +89,25 @@ export const models = [
       {
         name: 'nitro-sequelize.d.ts',
         content: [
-          '/// <reference path="./nitro-sequelize-alias.d.ts" />',
           '/// <reference path="./nitro-sequelize-env.d.ts" />'
         ].join('\n')
       },
       {
-        name: 'nitro-sequelize-alias.d.ts',
-        content: [
-          `declare module '#wxjs/sequelize' {`,
-          `  export * from '${pathe.relative(buildDirTypesDir, resolve('./runtime/service'))}'`,
-          '}',
-          `declare module '#wxjs/sequelize/extra' {`,
-          `  export * from '@windx-foobar/sequelize/extra'`,
-          '}'
-        ].join('\n')
+        name: 'nitro-sequelize-service.d.ts',
+        content: `export * from '${pathe.relative(buildDirTypesDir, resolve('./runtime/service'))}'`
+      },
+      {
+        name: 'nitro-sequelize-extra.d.ts',
+        content: `export * from '${pathe.relative(typesDir, new URL('./extra', sequelizeExtraURL).pathname)}'`
       },
       {
         name: 'nitro-sequelize-env.d.ts',
         content: [
           `declare module '@windx-foobar/sequelize' {`,
-          '  interface ModelsMap {',
+          '  interface NitroModelsMap {',
           `    ${modelsMap}`,
           '  }',
           '}',
-          // `declare module 'h3' {`,
-          // `  interface H3Context`,
-          // '}'
           'export {}'
         ].join('\n')
       }
@@ -108,6 +116,12 @@ export const models = [
   const writeTypes = async () => {
     nitroTsConfig.tsConfig!.include ||= [];
     nitroTsConfig.tsConfig!.include!.push('./nitro-sequelize.d.ts');
+
+    try {
+      await fsp.opendir(resolve(typesDir));
+    } catch (error) {
+      await fsp.mkdir(resolve(typesDir), { recursive: true });
+    }
 
     await Promise.all(
       createTypes().map(async (typeMeta) => {

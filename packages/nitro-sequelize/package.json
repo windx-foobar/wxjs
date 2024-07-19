@@ -43,7 +43,8 @@
     "consola": "^3.2.3",
     "pathe": "^1.1.1",
     "defu": "^6.1.3",
-    "knitwork": "^1.0.0"
+    "knitwork": "^1.0.0",
+    "mlly": "^1.4.2"
   },
   "devDependencies": {
     "sqlite3": "^5.1.6",
